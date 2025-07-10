@@ -1,7 +1,0 @@
-aiogram
-python-dotenv
-google-generativeai
-gTTS
-aiosqlite
-Pillow
-aiohttp-socks

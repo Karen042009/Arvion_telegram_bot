@@ -1,21 +1,29 @@
+#
 import os
-
-# Այլևս պետք չեն dotenv-ը և pathlib-ը
-# from dotenv import load_dotenv
-# from pathlib import Path
-
-# load_dotenv() կանչն էլ է պետք չէ
 
 TELEGRAM_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 
-# DATABASE_NAME-ի համար նշում ենք ամբողջական ճանապարհը, որպեսզի խնդիր չլինի
-# Փոխարինեք 8Khumaryan8-ը ձեր PythonAnywhere-ի username-ով
-PA_USERNAME = "8Khumaryan8" # Կամ կարող եք սա էլ վերցնել միջավայրի փոփոխականից
+PA_USERNAME = "8Khumaryan8" 
 DB_FULL_PATH = f"/home/{PA_USERNAME}/Arvion_Lingua_AI/Arvion_Lingua_AI/lingua_ai_bot.db"
-DB_NAME = os.getenv("DATABASE_NAME", DB_FULL_PATH) # Եթե սահմանված չէ, օգտագործում ենք ամբողջական ճանապարհը
-
+DB_NAME = os.getenv("DATABASE_NAME", DB_FULL_PATH)
 GEMINI_MODEL = os.getenv("GEMINI_MODEL", "gemini-1.5-flash")
+#
+"""
+import os
+from dotenv import load_dotenv
+load_dotenv()
+TELEGRAM_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
+if 'PYTHONANYWHERE_VERSION' in os.environ:
+    PA_USERNAME = os.environ.get("USER")  # Ավտոմատ վերցնում է username-ը
+    DB_NAME = f"/home/{PA_USERNAME}/Arvion_Lingua_AI/Arvion_Lingua_AI/lingua_ai_bot.db"
+else:
+    DB_NAME = os.getenv("DATABASE_NAME", "lingua_ai_bot.db")
+GEMINI_MODEL = os.getenv("GEMINI_MODEL", "gemini-1.5-flash")
+if not TELEGRAM_TOKEN:
+    raise ValueError("CRITICAL: TELEGRAM_BOT_TOKEN is not found. Please set it in your .env file or environment variables.")
+"""
 
 # ... մնացած կոդը մնում է նույնը ...
 
